@@ -1,0 +1,50 @@
+<div class="layout-topbar">
+  <a class="layout-topbar-logo" routerLink="">
+<!--    <app-ase-icon iconName="logo" height="42px" width="192px"></app-ase-icon>-->
+  </a>
+
+  <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+    <i class="pi pi-bars"></i>
+  </button>
+  <div #topbarmenu class="layout-topbar-menu"
+       [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+    <button class="p-link layout-topbar-button"
+            (click)="toggleTheme()">
+      @if (valSwitch) {
+        <i class="pi pi-moon"></i>
+      } @else {
+        <i class="pi pi-sun"></i>
+      }
+
+    </button>
+    <p-menu #menu [popup]="true" [model]="items">
+      <ng-template pTemplate="item" let-item>
+        <ng-container *ngIf="item.routerLink; else elseBlock">
+          <a [routerLink]="item.routerLink" (click)="logOut()" class="p-menuitem-link">
+            <span [class]="item.icon"></span>
+            <span class="ml-2">{{ item.label }}</span>
+          </a>
+        </ng-container>
+        <ng-template #elseBlock>
+          <a class="p-menuitem-link">
+            <span [class]="item.icon"></span>
+            <span appAseTypography textColor="primary" class="ml-2">{{ item.label }}</span>
+          </a>
+        </ng-template>
+      </ng-template>
+    </p-menu>
+    <div class="ml-3">
+      <p-toggleButton
+        [ngModel]="toggleLang"
+        (ngModelChange)="switchLanguage($event)"
+        onLabel="Vi"
+        offLabel="Eng"
+        styleClass="w-9rem"
+        ariaLabel="Do you confirm"/>
+    </div>
+    <button (click)="menu.toggle($event)" class="p-link layout-topbar-button">
+      <i class="pi pi-user"></i>
+      <span>Profile</span>
+    </button>
+  </div>
+</div>
