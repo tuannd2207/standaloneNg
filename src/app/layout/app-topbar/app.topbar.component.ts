@@ -1,11 +1,14 @@
 import {Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {LayoutService} from "../service/app.layout.service";
-import {LocalStorageJwtService} from "../../../helper/services/local-storage-jwt.service";
+// import {LocalStorageJwtService} from "../../../helper/services/local-storage-jwt.service";
 import {Lang, ThemeType} from "../../enums/app.enum";
 import {I18nService} from "../../services/i18n.service";
-import {NgClass} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import {MenuModule} from "primeng/menu";
+import {ToggleButtonModule} from "primeng/togglebutton";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-topbar',
@@ -13,7 +16,11 @@ import {RouterLink} from "@angular/router";
   standalone: true,
   imports: [
     NgClass,
-    RouterLink
+    RouterLink,
+    MenuModule,
+    ToggleButtonModule,
+    FormsModule,
+    NgIf
   ],
 })
 export class AppTopBarComponent {
@@ -40,7 +47,7 @@ export class AppTopBarComponent {
     ];
   toggleLang = true;
   valSwitch = false;
-  private localStorageService = inject(LocalStorageJwtService);
+  // private localStorageService = inject(LocalStorageJwtService);
   private i18nService = inject(I18nService);
 
   toggleTheme(): void {
@@ -50,7 +57,7 @@ export class AppTopBarComponent {
   }
 
   logOut(): void {
-    this.localStorageService.removeItem();
+    // this.localStorageService.removeItem();
   }
 
   switchLanguage(language: boolean): void {

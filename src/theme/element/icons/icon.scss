@@ -1,0 +1,17 @@
+$path-images: 'assets/icons/';
+$custom-icon-map: (
+  test-icon: url(#{$path-images}test.svg),
+  logo: url(#{$path-images}logo.svg),
+);
+
+@each $name, $type in $custom-icon-map {
+  .ase-icon-#{$name}:before {
+    content: '';
+    background-image: $type !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%; // Default height. Possible to override.
+    width: 100%; // Default width. Possible to override.
+    display: block;
+  }
+}

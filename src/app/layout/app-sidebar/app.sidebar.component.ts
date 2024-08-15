@@ -1,9 +1,12 @@
 import {Component, ElementRef} from '@angular/core';
 import {LayoutService} from "../service/app.layout.service";
+import {AppMenuComponent} from "../app-menu/app.menu.component";
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [
+    AppMenuComponent
+  ],
   selector: 'app-sidebar',
   templateUrl: './app.sidebar.component.html'
 })

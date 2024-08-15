@@ -5,17 +5,20 @@ import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {MenuService} from '../service/app.menu.service';
 import {LayoutService} from "../service/app.layout.service";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {CommonModule, NgClass, NgForOf, NgIf} from "@angular/common";
+import {RippleModule} from "primeng/ripple";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   standalone: true,
   imports: [
     NgIf,
+    CommonModule,
     RouterLink,
     NgClass,
     RouterLinkActive,
-    NgForOf
+    NgForOf,
+    RippleModule
   ],
   selector: '[app-menuitem]',
   template: `

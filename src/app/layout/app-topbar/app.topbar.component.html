@@ -1,6 +1,6 @@
 <div class="layout-topbar">
   <a class="layout-topbar-logo" routerLink="">
-<!--    <app-ase-icon iconName="logo" height="42px" width="192px"></app-ase-icon>-->
+    <!--    <app-ase-icon iconName="logo" height="42px" width="192px"></app-ase-icon>-->
   </a>
 
   <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
@@ -28,7 +28,7 @@
         <ng-template #elseBlock>
           <a class="p-menuitem-link">
             <span [class]="item.icon"></span>
-            <span appAseTypography textColor="primary" class="ml-2">{{ item.label }}</span>
+            <!--            <span appAseTypography textColor="primary" class="ml-2">{{ item.label }}</span>-->
           </a>
         </ng-template>
       </ng-template>
